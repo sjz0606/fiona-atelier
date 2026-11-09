@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>fiona — мастерская букета · Ташкент</title>
+<meta name="description" content="Fiona, Ташкент: соберите букет онлайн и отправьте заказ в Direct или Telegram. Доставка по Ташкенту 30–60 минут, каждый день 9:00–01:00.">
+<meta name="theme-color" content="#FBEEE8">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Onest:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" crossorigin>
+<link rel="preload" as="image" href="media/p/DfEwB7QtMRH.jpg">
+</head>
+<body>
+
+<header class="top" id="top">
+  <a class="brand" href="#atelier" aria-label="fiona">fiona</a>
+  <nav class="nav" aria-label="Разделы">
+    <a href="#atelier" data-i18n="nav.atelier">Мастерская</a>
+    <a href="#ready" data-i18n="nav.ready">Готовые букеты</a>
+    <a href="#care" data-i18n="nav.care">Уход</a>
+    <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
+  </nav>
+  <div class="top-right">
+    <div class="lang" role="group" aria-label="Язык / Til">
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" data-lang="uz" aria-pressed="false">UZ</button>
+    </div>
+    <a class="top-phone" href="tel:+998971061171">+998 97 106-11-71</a>
+  </div>
+</header>
+
+<main>
+<!-- ============ ATELIER ============ -->
+<section class="atelier" id="atelier" aria-labelledby="h1">
+  <div class="stage-col">
+    <figure class="stage" id="stage" aria-live="polite">
+      <div class="stage-layers" id="stageLayers"></div>
+      <a class="stage-src" id="stageSrc" href="https://www.instagram.com/fiona_tashkent/" target="_blank" rel="noopener">
+        <span data-i18n="stage.src">из ленты @fiona_tashkent</span>
+      </a>
+      <div class="stage-vase" id="stageVase" hidden>
+        <img alt="" id="stageVaseImg">
+        <span id="stageVaseName"></span>
+      </div>
+      <figcaption class="tag" id="tag">
+        <div class="tag-lines" id="tagLines"></div>
+        <div class="tag-total">
+          <span data-i18n="sum.total">Итого</span>
+          <strong class="js-flip"><span class="js-total">3 100 000</span> <small class="js-cur">сум</small></strong>
+        </div>
+        <button type="button" class="btn btn-ink btn-sm magnetic js-compose" data-i18n="cta.compose">Оформить заказ</button>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="panel">
+    <h1 id="h1" class="h1" data-i18n="hero.title">Соберите букет, как&nbsp;флорист</h1>
+    <p class="lead"><span data-i18n="hero.lead">Шесть коротких шагов — и готовое сообщение для заказа. Доставка по Ташкенту за 30–60 минут, каждый день 9:00–01:00.</span></p>
+
+    <ol class="rail" id="rail" aria-label="Шаги">
+      <li><button type="button" data-go="0"><i>1</i><span data-i18n="s1.short">Повод</span></button></li>
+      <li><button type="button" data-go="1"><i>2</i><span data-i18n="s2.short">Бюджет</span></button></li>
+      <li><button type="button" data-go="2"><i>3</i><span data-i18n="s3.short">Формат</span></button></li>
+      <li><button type="button" data-go="3"><i>4</i><span data-i18n="s4.short">Ваза</span></button></li>
+      <li><button type="button" data-go="4"><i>5</i><span data-i18n="s5.short">Открытка</span></button></li>
+      <li><button type="button" data-go="5"><i>6</i><span data-i18n="s6.short">Доставка</span></button></li>
+      <li class="rail-fill" aria-hidden="true"><b id="railFill"></b></li>
+    </ol>
+
+    <div class="steps" id="steps">
+      <!-- 1 occasion -->
+      <section class="step is-active" data-step="0" aria-labelledby="s1h">
+        <h2 class="step-h" id="s1h" data-i18n="s1.title">Какой повод?</h2>
+        <p class="step-sub" data-i18n="s1.sub">От повода зависит подсказка для открытки. Букет выберете на следующем шаге.</p>
+        <div class="occ" id="occ" role="radiogroup"></div>
+      </section>
+
+      <!-- 2 budget -->
+      <section class="step" data-step="1" aria-labelledby="s2h">
+        <h2 class="step-h" id="s2h" data-i18n="s2.title">Сколько хотите потратить?</h2>
+        <p class="step-sub" data-i18n="s2.sub">Каждая отметка на шкале — реальный букет Fiona с этой ценой.</p>
+        <div class="budget">
+          <div class="budget-read">
+            <span class="budget-price"><span id="budgetPrice">3 100 000</span> <small class="js-cur">сум</small></span>
+            <span class="pill" id="roses" hidden data-i18n="s2.roses">≈ 101 роза</span>
+          </div>
+          <div class="slider-wrap">
+            <input type="range" id="budget" min="0" max="10" step="1" value="5" aria-label="Бюджет">
+            <div class="ticks" id="ticks" aria-hidden="true"></div>
+            <div class="anchors" id="anchors" aria-hidden="true"></div>
+          </div>
+          <div class="variants" id="variants">
+            <p class="variants-h" id="variantsH"></p>
+            <div class="thumbs" id="thumbs"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 format -->
+      <section class="step" data-step="2" aria-labelledby="s3h">
+        <h2 class="step-h" id="s3h" data-i18n="s3.title">В каком виде?</h2>
+        <p class="step-sub" data-i18n="s3.sub">Цена подстроится под ближайшую работу в выбранном формате.</p>
+        <div class="fmts" id="fmts" role="radiogroup"></div>
+        <p class="note" id="fmtNote" aria-live="polite"></p>
+      </section>
+
+      <!-- 4 vase -->
+      <section class="step" data-step="3" aria-labelledby="s4h">
+        <h2 class="step-h" id="s4h" data-i18n="s4.title">Добавить вазу?</h2>
+        <p class="step-sub" data-i18n="s4.sub">Вазы из раздела «Доп. товары». Цветы приедут уже в ней.</p>
+        <div class="vases" id="vases" role="radiogroup"></div>
+      </section>
+
+      <!-- 5 card -->
+      <section class="step" data-step="4" aria-labelledby="s5h">
+        <h2 class="step-h" id="s5h" data-i18n="s5.title">Что написать в открытке?</h2>
+        <div class="card-step">
+          <div class="card-edit">
+            <label class="field">
+              <span data-i18n="s5.label">Текст открытки</span>
+              <textarea id="cardText" maxlength="160" rows="4"></textarea>
+              <small class="count"><span id="cardCount">0</span>/160</small>
+            </label>
+            <div class="ideas" id="ideas"></div>
+            <label class="check"><input type="checkbox" id="cardOff"> <span data-i18n="s5.off">Без открытки</span></label>
+          </div>
+          <div class="card-preview" id="cardPreview" aria-hidden="true">
+            <div class="env"></div>
+            <div class="pcard">
+              <span class="pcard-brand">fiona</span>
+              <p class="pcard-text" id="cardLive"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 delivery -->
+      <section class="step" data-step="5" aria-labelledby="s6h">
+        <h2 class="step-h" id="s6h" data-i18n="s6.title">Когда и куда доставить?</h2>
+        <p class="step-sub" data-i18n="s6.sub">Только по Ташкенту. Обычно 30–60 минут после сборки.</p>
+        <div class="chips" id="days" role="radiogroup"></div>
+        <div class="slots" id="slots" role="radiogroup"></div>
+        <div class="grid2">
+          <label class="field"><span data-i18n="s6.district">Район</span>
+            <select id="district"></select>
+          </label>
+          <label class="field"><span data-i18n="s6.address">Адрес</span>
+            <input id="address" type="text" autocomplete="street-address" data-i18n-ph="s6.addressPh" placeholder="Улица, дом, ориентир">
+          </label>
+          <label class="field"><span data-i18n="s6.name">Имя получателя</span>
+            <input id="rname" type="text" autocomplete="off">
+          </label>
+          <label class="field"><span data-i18n="s6.phone">Телефон получателя</span>
+            <input id="rphone" type="tel" inputmode="tel" placeholder="+998">
+          </label>
+        </div>
+        <label class="check photo-check"><input type="checkbox" id="photoReq" checked>
+          <span><b data-i18n="s6.photo">Пришлите фото букета перед отправкой</b><small data-i18n="s6.photoSub">Вы увидите свой букет до того, как он уедет к получателю.</small></span>
+        </label>
+      </section>
+    </div>
+
+    <div class="step-nav">
+      <button type="button" class="btn btn-ghost" id="prev" data-i18n="nav.prev">Назад</button>
+      <button type="button" class="btn btn-ink magnetic" id="next"><span id="nextLabel">Далее</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ READY ============ -->
+<section class="ready" id="ready" aria-labelledby="readyH">
+  <div class="sec-head">
+    <h2 class="h2" id="readyH" data-i18n="ready.title">Готовые букеты</h2>
+    <p class="sec-sub" data-i18n="ready.sub">Работы Fiona с ценами из постов. Любую можно взять за основу и дособрать в мастерской.</p>
+  </div>
+  <div class="filters">
+    <div class="chips" id="priceChips" role="group"></div>
+    <div class="chips chips-quiet" id="fmtChips" role="group"></div>
+  </div>
+  <div class="ring-wrap" id="ringWrap" hidden>
+    <div class="ring-scene" id="ringScene" tabindex="0" role="region" aria-roledescription="carousel" data-i18n-aria="ring.aria" aria-label="Карусель букетов">
+      <div class="ring" id="ring"></div>
+    </div>
+    <div class="ring-ui">
+      <button type="button" class="ring-btn" id="ringPrev" data-i18n-aria="ring.prev" aria-label="Предыдущий"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></button>
+      <div class="ring-cap" id="ringCap" aria-live="polite"></div>
+      <button type="button" class="ring-btn" id="ringNext" data-i18n-aria="ring.next" aria-label="Следующий"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></button>
+    </div>
+    <p class="ring-hint" data-i18n="ring.hint">Потяните карусель или используйте стрелки</p>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="more-wrap"><button type="button" class="btn btn-ghost" id="more" data-i18n="ready.more">Показать ещё</button><button type="button" class="btn btn-ghost" id="viewToggle" hidden></button></div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="trust" aria-label="Fiona">
+  <a class="trust-i" href="https://yandex.uz/maps/org/fiona/105980229330/reviews/" target="_blank" rel="noopener">
+    <strong>4,8</strong><span data-i18n="trust.y">Яндекс Карты, 82 оценки. Чаще всего хвалят быструю доставку и свежие цветы</span>
+  </a>
+  <div class="trust-i"><strong>9:00–01:00</strong><span data-i18n="trust.h">Каждый день, в том числе поздно вечером</span></div>
+  <div class="trust-i"><strong>30–60</strong><span data-i18n="trust.d">минут на доставку. Работаем только по Ташкенту</span></div>
+  <div class="trust-i"><strong data-i18n="trust.pT">Фото</strong><span data-i18n="trust.p">Предлагаем: снимок вашего букета до отправки курьеру — чтобы он совпал с ожиданием</span></div>
+</section>
+
+<!-- ============ CARE ============ -->
+<section class="care" id="care" aria-labelledby="careH">
+  <div class="sec-head">
+    <h2 class="h2" id="careH" data-i18n="care.title">Чтобы букет стоял дольше</h2>
+    <p class="sec-sub" data-i18n="care.sub">Шесть правил от флористов Fiona. Нажмите на шаг, чтобы прочитать.</p>
+  </div>
+  <ol class="care-list" id="careList"></ol>
+</section>
+
+<!-- ============ CONTACTS ============ -->
+<section class="contacts" id="contacts" aria-labelledby="contH">
+  <div class="cont-media">
+    <img src="media/p/DbXZJ5pNop9.jpg" alt="" loading="lazy" width="1080" height="1439">
+  </div>
+  <div class="cont-body">
+    <h2 class="h2" id="contH" data-i18n="cont.title">Мастерская на Абдуллы Каххора</h2>
+    <dl class="cont-dl">
+      <div><dt data-i18n="cont.addr">Адрес</dt><dd data-i18n="cont.addrV">ул. Абдуллы Каххора, 47А, Ташкент</dd></div>
+      <div><dt data-i18n="cont.hours">Часы</dt><dd data-i18n="cont.hoursV">Каждый день, 9:00–01:00</dd></div>
+      <div><dt data-i18n="cont.phone">Телефон</dt><dd><a href="tel:+998971061171">+998 97 106-11-71</a></dd></div>
+      <div><dt data-i18n="cont.order">Заказ</dt><dd><a href="https://ig.me/m/fiona_tashkent" target="_blank" rel="noopener">Instagram Direct</a>, <a href="https://t.me/fiona_tashkent" target="_blank" rel="noopener">Telegram</a></dd></div>
+    </dl>
+    <div class="cont-actions">
+      <a class="btn btn-ink magnetic" href="https://yandex.uz/maps/org/fiona/105980229330/" target="_blank" rel="noopener" data-i18n="cont.map">Открыть на Яндекс Картах</a>
+      <a class="btn btn-ghost" href="tel:+998971061171" data-i18n="cont.call">Позвонить</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span class="brand brand-sm">fiona</span>
+  <span data-i18n="foot.line">Цветы и подарки с доставкой по Ташкенту</span>
+  <span class="foot-note" data-i18n="foot.concept">Концепт сайта · Lumagen</span>
+</footer>
+
+<!-- mobile sticky bar -->
+<div class="mbar" id="mbar">
+  <button type="button" class="mbar-pic" id="mbarPic" aria-label="Фото букета"><img id="mbarImg" alt="" src="media/p/DebL9uHNts5.jpg"></button>
+  <div class="mbar-total"><small data-i18n="sum.total">Итого</small><strong class="js-flip"><span class="js-total">3 100 000</span> <small class="js-cur">сум</small></strong></div>
+  <button type="button" class="btn btn-ink btn-sm js-compose" data-i18n="cta.compose">Оформить заказ</button>
+</div>
+
+<!-- composer -->
+<dialog class="composer" id="composer" aria-labelledby="compH">
+  <form method="dialog" class="comp-inner">
+    <button class="comp-x" value="close" aria-label="Закрыть">×</button>
+    <h2 class="h2 comp-h" id="compH" data-i18n="comp.title">Ваш заказ готов к отправке</h2>
+    <p class="comp-sub" data-i18n="comp.sub">Сайт не принимает оплату — заказ уходит флористу сообщением. Проверьте текст, при желании поправьте и выберите, куда отправить.</p>
+    <textarea id="msg" rows="12" aria-label="Текст заказа"></textarea>
+    <div class="comp-actions">
+      <a class="btn btn-ink" href="tel:+998971061171" data-i18n="comp.call">Позвонить</a>
+      <button type="button" class="btn btn-ghost" id="copyBtn" data-i18n="comp.copy">Скопировать текст</button>
+      <a class="btn btn-ghost js-send" href="https://ig.me/m/fiona_tashkent" target="_blank" rel="noopener" data-i18n="comp.ig">Instagram Direct</a>
+      <a class="btn btn-ghost js-send" href="https://t.me/fiona_tashkent" target="_blank" rel="noopener" data-i18n="comp.tg">Telegram</a>
+    </div>
+    <p class="comp-hint" data-i18n="comp.hint">Для Direct и Telegram текст скопируется сам — останется вставить его в чат.</p>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+<script type="module" src="stage3d.js"></script>
+</body>
+</html>
